@@ -1,0 +1,290 @@
+import React, { useEffect } from 'react';
+import { useForm } from '../context/FormContext';
+import { X, ArrowLeft, Phone } from 'lucide-react';
+
+const FormModal: React.FC = () => {
+  const { isFormOpen, setIsFormOpen, formData, updateFormField } = useForm();
+
+  useEffect(() => {
+    if (isFormOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isFormOpen]);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log('Form submitted:', formData);
+    // Here you would typically send the data to your backend
+    alert('Shylock has been summoned! You will receive a confirmation shortly.');
+    setIsFormOpen(false);
+  };
+
+  if (!isFormOpen) return null;
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center">
+      {/* Backdrop */}
+      <div 
+        className="absolute inset-0 bg-black/80 backdrop-blur-sm"
+        onClick={() => setIsFormOpen(false)}
+      />
+      
+      {/* Modal */}
+      <div className="relative bg-white text-black w-full max-w-4xl max-h-[90vh] overflow-y-auto m-4">
+        {/* Header */}
+        <div className="sticky top-0 bg-white border-b border-gray-200 p-6 flex items-center justify-between">
+          <button
+            onClick={() => setIsFormOpen(false)}
+            className="flex items-center gap-2 text-gray-600 hover:text-black transition-colors"
+          >
+            <ArrowLeft size={20} />
+            Return to Shylock
+          </button>
+          <button
+            onClick={() => setIsFormOpen(false)}
+            className="text-gray-600 hover:text-black transition-colors"
+          >
+            <X size={24} />
+          </button>
+        </div>
+        
+        {/* Content */}
+        <div className="p-8">
+          <div className="text-center mb-12">
+            <h2 className="text-5xl font-black mb-4">
+              CONFIGURE
+            </h2>
+            <p className="text-2xl font-serif italic text-gray-600 mb-6">
+              your voice
+            </p>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Craft the perfect theatrical intervention with surgical precision
+            </p>
+          </div>
+          
+          <form onSubmit={handleSubmit} className="max-w-3xl mx-auto space-y-8">
+            {/* Basic Information */}
+            <div className="grid md:grid-cols-2 gap-6">
+              <div>
+                <label className="block text-sm font-bold mb-2 tracking-wide">
+                  YOUR NAME
+                </label>
+                <input
+                  type="text"
+                  value={formData.collector_name}
+                  onChange={(e) => updateFormField('collector_name', e.target.value)}
+                  placeholder="John Carpenter"
+                  className="w-full p-4 border-2 border-gray-300 focus:border-black focus:outline-none text-lg"
+                  required
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-bold mb-2 tracking-wide">
+                  DEBTOR'S NAME
+                </label>
+                <input
+                  type="text"
+                  value={formData.friend_name}
+                  onChange={(e) => updateFormField('friend_name', e.target.value)}
+                  placeholder="Their name"
+                  className="w-full p-4 border-2 border-gray-300 focus:border-black focus:outline-none text-lg"
+                  required
+                />
+              </div>
+            </div>
+            
+            <div>
+              <label className="block text-sm font-bold mb-2 tracking-wide">
+                THEIR CONTACT
+              </label>
+              <input
+                type="tel"
+                value={formData.phone_number}
+                onChange={(e) => updateFormField('phone_number', e.target.value)}
+                placeholder="+1 (555) 123-4567"
+                className="w-full p-4 border-2 border-gray-300 focus:border-black focus:outline-none text-lg"
+                required
+              />
+            </div>
+            
+            <div className="grid md:grid-cols-2 gap-6">
+              <div>
+                <label className="block text-sm font-bold mb-2 tracking-wide">
+                  AMOUNT OWED
+                </label>
+                <input
+                  type="text"
+                  value={formData.amount}
+                  onChange={(e) => updateFormField('amount', e.target.value)}
+                  placeholder="$35"
+                  className="w-full p-4 border-2 border-gray-300 focus:border-black focus:outline-none text-lg"
+                  required
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-bold mb-2 tracking-wide">
+                  OVERDUE FOR
+                </label>
+                <input
+                  type="text"
+                  value={formData.time_since}
+                  onChange={(e) => updateFormField('time_since', e.target.value)}
+                  placeholder="1 year"
+                  className="w-full p-4 border-2 border-gray-300 focus:border-black focus:outline-none text-lg"
+                  required
+                />
+              </div>
+            </div>
+            
+            <div>
+              <label className="block text-sm font-bold mb-2 tracking-wide">
+                ORIGINAL TRANSACTION
+              </label>
+              <textarea
+                value={formData.reason}
+                onChange={(e) => updateFormField('reason', e.target.value)}
+                placeholder="Paid for lunch at SS Hyderbadi Biryani"
+                rows={4}
+                className="w-full p-4 border-2 border-gray-300 focus:border-black focus:outline-none text-lg resize-none"
+                required
+              />
+            </div>
+            
+            {/* Personality Matrix */}
+            <div className="border-t-2 border-black pt-8">
+              <div className="flex items-center gap-3 mb-8">
+                <div className="w-8 h-8 bg-black text-white rounded-full flex items-center justify-center">
+                  <div className="w-3 h-3 border border-white rounded-full" />
+                </div>
+                <h3 className="text-2xl font-black">PERSONALITY MATRIX</h3>
+              </div>
+              
+              <div className="space-y-8">
+                {/* Gravitas */}
+                <div>
+                  <div className="flex justify-between items-center mb-4">
+                    <div>
+                      <h4 className="text-xl font-bold">GRAVITAS</h4>
+                      <div className="flex justify-between text-sm text-gray-600 mt-1">
+                        <span>CASUAL</span>
+                        <span>FUNERAL</span>
+                      </div>
+                    </div>
+                    <div className="bg-black text-white px-4 py-2 font-bold">
+                      {formData.tone.serious}%
+                    </div>
+                  </div>
+                  <div className="relative">
+                    <input
+                      type="range"
+                      min="0"
+                      max="100"
+                      value={formData.tone.serious}
+                      onChange={(e) => updateFormField('tone.serious', parseInt(e.target.value))}
+                      className="w-full h-2 bg-gray-300 appearance-none slider"
+                    />
+                    <div 
+                      className="absolute top-0 h-2 bg-black"
+                      style={{ width: `${formData.tone.serious}%` }}
+                    />
+                    <div 
+                      className="absolute top-1/2 w-4 h-4 bg-white border-2 border-black rounded-full transform -translate-y-1/2"
+                      style={{ left: `calc(${formData.tone.serious}% - 8px)` }}
+                    />
+                  </div>
+                </div>
+                
+                {/* Intensity */}
+                <div>
+                  <div className="flex justify-between items-center mb-4">
+                    <div>
+                      <h4 className="text-xl font-bold">INTENSITY</h4>
+                      <div className="flex justify-between text-sm text-gray-600 mt-1">
+                        <span>GENTLE</span>
+                        <span>INTIMIDATING</span>
+                      </div>
+                    </div>
+                    <div className="bg-black text-white px-4 py-2 font-bold">
+                      {formData.tone.aggressive}%
+                    </div>
+                  </div>
+                  <div className="relative">
+                    <input
+                      type="range"
+                      min="0"
+                      max="100"
+                      value={formData.tone.aggressive}
+                      onChange={(e) => updateFormField('tone.aggressive', parseInt(e.target.value))}
+                      className="w-full h-2 bg-gray-300 appearance-none slider"
+                    />
+                    <div 
+                      className="absolute top-0 h-2 bg-black"
+                      style={{ width: `${formData.tone.aggressive}%` }}
+                    />
+                    <div 
+                      className="absolute top-1/2 w-4 h-4 bg-white border-2 border-black rounded-full transform -translate-y-1/2"
+                      style={{ left: `calc(${formData.tone.aggressive}% - 8px)` }}
+                    />
+                  </div>
+                </div>
+                
+                {/* Conscience */}
+                <div>
+                  <div className="flex justify-between items-center mb-4">
+                    <div>
+                      <h4 className="text-xl font-bold">CONSCIENCE</h4>
+                      <div className="flex justify-between text-sm text-gray-600 mt-1">
+                        <span>FACTUAL</span>
+                        <span>SOUL-CRUSHING</span>
+                      </div>
+                    </div>
+                    <div className="bg-black text-white px-4 py-2 font-bold">
+                      {formData.tone.guilt}%
+                    </div>
+                  </div>
+                  <div className="relative">
+                    <input
+                      type="range"
+                      min="0"
+                      max="100"
+                      value={formData.tone.guilt}
+                      onChange={(e) => updateFormField('tone.guilt', parseInt(e.target.value))}
+                      className="w-full h-2 bg-gray-300 appearance-none slider"
+                    />
+                    <div 
+                      className="absolute top-0 h-2 bg-black"
+                      style={{ width: `${formData.tone.guilt}%` }}
+                    />
+                    <div 
+                      className="absolute top-1/2 w-4 h-4 bg-white border-2 border-black rounded-full transform -translate-y-1/2"
+                      style={{ left: `calc(${formData.tone.guilt}% - 8px)` }}
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            {/* Submit Button */}
+            <div className="pt-8">
+              <button
+                type="submit"
+                className="w-full bg-black text-white py-6 text-xl font-bold tracking-wide hover:bg-gray-800 transition-colors flex items-center justify-center gap-3"
+              >
+                <Phone size={24} />
+                SUMMON SHYLOCK
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default FormModal;
