@@ -37,7 +37,7 @@ const HeroSection: React.FC = () => {
           </h1>
           
           <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto mb-12 leading-relaxed">
-            Shylock.ai lets you send Shylock to gently recover what's owed — 
+            Because nothing says ‘pay up’ like a voice that won’t shut up.
             <br className="hidden md:block" />
             <em className="font-serif">as stories, not threats.</em>
           </p>
