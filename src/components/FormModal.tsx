@@ -158,20 +158,20 @@ const FormModal: React.FC = () => {
             
             {/* Personality Matrix */}
             <div className="border-t-2 border-black pt-8">
-              <div className="flex items-center gap-3 mb-8">
+              <div className="flex items-center gap-3 mb-12">
                 <div className="w-8 h-8 bg-black text-white rounded-full flex items-center justify-center">
                   <div className="w-3 h-3 border border-white rounded-full" />
                 </div>
                 <h3 className="text-2xl font-black">PERSONALITY MATRIX</h3>
               </div>
               
-              <div className="space-y-8">
+              <div className="space-y-12">
                 {/* Gravitas */}
                 <div>
-                  <div className="flex justify-between items-center mb-4">
+                  <div className="flex justify-between items-center mb-6">
                     <div>
                       <h4 className="text-xl font-bold">GRAVITAS</h4>
-                      <div className="flex justify-between text-sm text-gray-600 mt-1">
+                      <div className="flex justify-between text-sm text-gray-600 mt-2">
                         <span>CASUAL</span>
                         <span>FUNERAL</span>
                       </div>
@@ -190,11 +190,11 @@ const FormModal: React.FC = () => {
                       className="w-full h-2 bg-gray-300 appearance-none slider"
                     />
                     <div 
-                      className="absolute top-0 h-2 bg-black"
+                      className="absolute top-0 h-2 bg-black pointer-events-none"
                       style={{ width: `${formData.tone.serious}%` }}
                     />
                     <div 
-                      className="absolute top-1/2 w-4 h-4 bg-white border-2 border-black rounded-full transform -translate-y-1/2"
+                      className="absolute top-1/2 w-4 h-4 bg-white border-2 border-black rounded-full transform -translate-y-1/2 pointer-events-none"
                       style={{ left: `calc(${formData.tone.serious}% - 8px)` }}
                     />
                   </div>
@@ -202,10 +202,10 @@ const FormModal: React.FC = () => {
                 
                 {/* Intensity */}
                 <div>
-                  <div className="flex justify-between items-center mb-4">
+                  <div className="flex justify-between items-center mb-6">
                     <div>
                       <h4 className="text-xl font-bold">INTENSITY</h4>
-                      <div className="flex justify-between text-sm text-gray-600 mt-1">
+                      <div className="flex justify-between text-sm text-gray-600 mt-2">
                         <span>GENTLE</span>
                         <span>INTIMIDATING</span>
                       </div>
@@ -224,11 +224,11 @@ const FormModal: React.FC = () => {
                       className="w-full h-2 bg-gray-300 appearance-none slider"
                     />
                     <div 
-                      className="absolute top-0 h-2 bg-black"
+                      className="absolute top-0 h-2 bg-black pointer-events-none"
                       style={{ width: `${formData.tone.aggressive}%` }}
                     />
                     <div 
-                      className="absolute top-1/2 w-4 h-4 bg-white border-2 border-black rounded-full transform -translate-y-1/2"
+                      className="absolute top-1/2 w-4 h-4 bg-white border-2 border-black rounded-full transform -translate-y-1/2 pointer-events-none"
                       style={{ left: `calc(${formData.tone.aggressive}% - 8px)` }}
                     />
                   </div>
@@ -236,10 +236,10 @@ const FormModal: React.FC = () => {
                 
                 {/* Conscience */}
                 <div>
-                  <div className="flex justify-between items-center mb-4">
+                  <div className="flex justify-between items-center mb-6">
                     <div>
                       <h4 className="text-xl font-bold">CONSCIENCE</h4>
-                      <div className="flex justify-between text-sm text-gray-600 mt-1">
+                      <div className="flex justify-between text-sm text-gray-600 mt-2">
                         <span>FACTUAL</span>
                         <span>SOUL-CRUSHING</span>
                       </div>
@@ -258,11 +258,11 @@ const FormModal: React.FC = () => {
                       className="w-full h-2 bg-gray-300 appearance-none slider"
                     />
                     <div 
-                      className="absolute top-0 h-2 bg-black"
+                      className="absolute top-0 h-2 bg-black pointer-events-none"
                       style={{ width: `${formData.tone.guilt}%` }}
                     />
                     <div 
-                      className="absolute top-1/2 w-4 h-4 bg-white border-2 border-black rounded-full transform -translate-y-1/2"
+                      className="absolute top-1/2 w-4 h-4 bg-white border-2 border-black rounded-full transform -translate-y-1/2 pointer-events-none"
                       style={{ left: `calc(${formData.tone.guilt}% - 8px)` }}
                     />
                   </div>
