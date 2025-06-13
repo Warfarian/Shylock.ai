@@ -65,8 +65,7 @@ const FormModal: React.FC = () => {
                 <p className="text-yellow-700 leading-relaxed">
                   <strong>Student Account Restriction:</strong> Due to Twilio's verification requirements for upgraded accounts, 
                   this demo currently only works with pre-verified phone numbers. As a student developer, I cannot access 
-                  the upgraded Twilio features needed to call unverified numbers. The "Summon Shylock" feature will generate 
-                  a realistic preview, but actual calls are limited to verified test numbers.
+                  the upgraded Twilio features needed to call unverified numbers. The "Summon Shylock" feature will not actually work , but actual calls are limited to verified test numbers.
                 </p>
                 <p className="text-yellow-600 text-sm mt-2 font-medium">
                   Feel free to explore the interface and experience the AI-generated scripts!
