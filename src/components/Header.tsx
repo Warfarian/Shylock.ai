@@ -34,6 +34,20 @@ const Header: React.FC = () => {
     { path: '/leaderboard', label: 'LEADERBOARD' },
   ];
 
+  // Handle dropdown with delay for better UX
+  let hoverTimeout: NodeJS.Timeout;
+
+  const handleMouseEnter = () => {
+    clearTimeout(hoverTimeout);
+    setIsDashboardOpen(true);
+  };
+
+  const handleMouseLeave = () => {
+    hoverTimeout = setTimeout(() => {
+      setIsDashboardOpen(false);
+    }, 150); // Small delay to allow moving to dropdown
+  };
+
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       isScrolled || !isLandingPage ? 'bg-black/90 backdrop-blur-sm' : 'bg-transparent'
@@ -69,8 +83,8 @@ const Header: React.FC = () => {
                 {/* Dashboard Dropdown */}
                 <div 
                   className="relative"
-                  onMouseEnter={() => setIsDashboardOpen(true)}
-                  onMouseLeave={() => setIsDashboardOpen(false)}
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
                 >
                   <button className="text-sm font-medium tracking-wide hover:text-gray-300 transition-colors flex items-center gap-1">
                     DASHBOARD
@@ -78,12 +92,13 @@ const Header: React.FC = () => {
                   </button>
                   
                   {isDashboardOpen && (
-                    <div className="absolute top-full left-0 mt-2 w-48 bg-black/95 backdrop-blur-sm border border-white/10 py-2">
+                    <div className="absolute top-full left-0 mt-1 w-48 bg-black/95 backdrop-blur-sm border border-white/10 py-2 shadow-xl">
                       {dashboardPages.map((page) => (
                         <Link
                           key={page.path}
                           to={page.path}
-                          className="block px-4 py-2 text-sm font-medium tracking-wide hover:bg-white/10 transition-colors"
+                          className="block px-4 py-3 text-sm font-medium tracking-wide hover:bg-white/10 transition-colors"
+                          onClick={() => setIsDashboardOpen(false)}
                         >
                           {page.label}
                         </Link>
@@ -97,8 +112,8 @@ const Header: React.FC = () => {
                 {/* Dashboard Dropdown for non-landing pages */}
                 <div 
                   className="relative"
-                  onMouseEnter={() => setIsDashboardOpen(true)}
-                  onMouseLeave={() => setIsDashboardOpen(false)}
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
                 >
                   <button className="text-sm font-medium tracking-wide hover:text-gray-300 transition-colors flex items-center gap-1">
                     DASHBOARD
@@ -106,14 +121,15 @@ const Header: React.FC = () => {
                   </button>
                   
                   {isDashboardOpen && (
-                    <div className="absolute top-full left-0 mt-2 w-48 bg-black/95 backdrop-blur-sm border border-white/10 py-2">
+                    <div className="absolute top-full left-0 mt-1 w-48 bg-black/95 backdrop-blur-sm border border-white/10 py-2 shadow-xl">
                       {dashboardPages.map((page) => (
                         <Link
                           key={page.path}
                           to={page.path}
-                          className={`block px-4 py-2 text-sm font-medium tracking-wide hover:bg-white/10 transition-colors ${
+                          className={`block px-4 py-3 text-sm font-medium tracking-wide hover:bg-white/10 transition-colors ${
                             location.pathname === page.path ? 'bg-white/20' : ''
                           }`}
+                          onClick={() => setIsDashboardOpen(false)}
                         >
                           {page.label}
                         </Link>
