@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { ChevronDown } from 'lucide-react';
 
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isDashboardOpen, setIsDashboardOpen] = useState(false);
   const location = useLocation();
   const isLandingPage = location.pathname === '/';
 
@@ -21,6 +23,16 @@ const Header: React.FC = () => {
       element.scrollIntoView({ behavior: 'smooth' });
     }
   };
+
+  const dashboardPages = [
+    { path: '/dashboard', label: 'OVERVIEW' },
+    { path: '/ledger', label: 'DEBT LEDGER' },
+    { path: '/activity', label: 'ACTIVITY FEED' },
+    { path: '/tickets', label: 'TICKET GENERATOR' },
+    { path: '/wall', label: 'DEBT WALL' },
+    { path: '/vault', label: 'MEMORY VAULT' },
+    { path: '/leaderboard', label: 'LEADERBOARD' },
+  ];
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -53,50 +65,68 @@ const Header: React.FC = () => {
                 >
                   EXAMPLES
                 </button>
+                
+                {/* Dashboard Dropdown */}
+                <div 
+                  className="relative"
+                  onMouseEnter={() => setIsDashboardOpen(true)}
+                  onMouseLeave={() => setIsDashboardOpen(false)}
+                >
+                  <button className="text-sm font-medium tracking-wide hover:text-gray-300 transition-colors flex items-center gap-1">
+                    DASHBOARD
+                    <ChevronDown size={16} className={`transition-transform ${isDashboardOpen ? 'rotate-180' : ''}`} />
+                  </button>
+                  
+                  {isDashboardOpen && (
+                    <div className="absolute top-full left-0 mt-2 w-48 bg-black/95 backdrop-blur-sm border border-white/10 py-2">
+                      {dashboardPages.map((page) => (
+                        <Link
+                          key={page.path}
+                          to={page.path}
+                          className="block px-4 py-2 text-sm font-medium tracking-wide hover:bg-white/10 transition-colors"
+                        >
+                          {page.label}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
               </>
             ) : (
               <>
+                {/* Dashboard Dropdown for non-landing pages */}
+                <div 
+                  className="relative"
+                  onMouseEnter={() => setIsDashboardOpen(true)}
+                  onMouseLeave={() => setIsDashboardOpen(false)}
+                >
+                  <button className="text-sm font-medium tracking-wide hover:text-gray-300 transition-colors flex items-center gap-1">
+                    DASHBOARD
+                    <ChevronDown size={16} className={`transition-transform ${isDashboardOpen ? 'rotate-180' : ''}`} />
+                  </button>
+                  
+                  {isDashboardOpen && (
+                    <div className="absolute top-full left-0 mt-2 w-48 bg-black/95 backdrop-blur-sm border border-white/10 py-2">
+                      {dashboardPages.map((page) => (
+                        <Link
+                          key={page.path}
+                          to={page.path}
+                          className={`block px-4 py-2 text-sm font-medium tracking-wide hover:bg-white/10 transition-colors ${
+                            location.pathname === page.path ? 'bg-white/20' : ''
+                          }`}
+                        >
+                          {page.label}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+                
                 <Link 
-                  to="/dashboard"
+                  to="/"
                   className="text-sm font-medium tracking-wide hover:text-gray-300 transition-colors"
                 >
-                  DASHBOARD
-                </Link>
-                <Link 
-                  to="/ledger"
-                  className="text-sm font-medium tracking-wide hover:text-gray-300 transition-colors"
-                >
-                  LEDGER
-                </Link>
-                <Link 
-                  to="/activity"
-                  className="text-sm font-medium tracking-wide hover:text-gray-300 transition-colors"
-                >
-                  ACTIVITY
-                </Link>
-                <Link 
-                  to="/tickets"
-                  className="text-sm font-medium tracking-wide hover:text-gray-300 transition-colors"
-                >
-                  TICKETS
-                </Link>
-                <Link 
-                  to="/wall"
-                  className="text-sm font-medium tracking-wide hover:text-gray-300 transition-colors"
-                >
-                  WALL
-                </Link>
-                <Link 
-                  to="/vault"
-                  className="text-sm font-medium tracking-wide hover:text-gray-300 transition-colors"
-                >
-                  VAULT
-                </Link>
-                <Link 
-                  to="/leaderboard"
-                  className="text-sm font-medium tracking-wide hover:text-gray-300 transition-colors"
-                >
-                  LEADERBOARD
+                  BACK TO HOME
                 </Link>
               </>
             )}
