@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useForm } from '../context/FormContext';
-import { X, ArrowLeft, Phone } from 'lucide-react';
+import { X, ArrowLeft, Phone, AlertTriangle } from 'lucide-react';
 
 const FormModal: React.FC = () => {
   const { isFormOpen, setIsFormOpen, formData, updateFormField } = useForm();
@@ -56,6 +56,25 @@ const FormModal: React.FC = () => {
         
         {/* Content */}
         <div className="p-8">
+          {/* Twilio Disclaimer */}
+          <div className="bg-yellow-50 border-l-4 border-yellow-400 p-6 mb-8">
+            <div className="flex items-start">
+              <AlertTriangle className="text-yellow-400 mr-3 mt-1" size={20} />
+              <div>
+                <h3 className="text-lg font-bold text-yellow-800 mb-2">Demo Limitation Notice</h3>
+                <p className="text-yellow-700 leading-relaxed">
+                  <strong>Student Account Restriction:</strong> Due to Twilio's verification requirements for upgraded accounts, 
+                  this demo currently only works with pre-verified phone numbers. As a student developer, I cannot access 
+                  the upgraded Twilio features needed to call unverified numbers. The "Summon Shylock" feature will generate 
+                  a realistic preview, but actual calls are limited to verified test numbers.
+                </p>
+                <p className="text-yellow-600 text-sm mt-2 font-medium">
+                  Feel free to explore the interface and experience the AI-generated scripts!
+                </p>
+              </div>
+            </div>
+          </div>
+
           <div className="text-center mb-12">
             <h2 className="text-5xl font-black mb-4">
               CONFIGURE
