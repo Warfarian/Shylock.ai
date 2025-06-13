@@ -63,9 +63,13 @@ const FormModal: React.FC = () => {
               <div>
                 <h3 className="text-lg font-bold text-yellow-800 mb-2">Demo Limitation Notice</h3>
                 <p className="text-yellow-700 leading-relaxed">
-                  <strong>Student Account Restriction:</strong> Due to Twilio's verification requirements for upgraded accounts, 
-                  this demo currently only works with pre-verified phone numbers. As a student developer, I cannot access 
-                  the upgraded Twilio features needed to call unverified numbers. The "Summon Shylock" feature will not actually work , but actual calls are limited to verified test numbers.
+                  <strong>Student Account Restriction:</strong> Due to Twilio’s trial account restrictions, this demo currently works only with pre-verified phone numbers. As a student developer participating in the world’s largest hackathon, I don’t yet have access to the upgraded features needed to make real calls to unverified numbers.
+
+Additionally, bringing this experience to life relies on multiple paid services — including Retell AI for voice calling, ElevenLabs for custom voice synthesis, and Twilio for telephony infrastructure. Combined, these services can be prohibitively expensive, especially for an independent student builder like myself.
+
+As a result, while the “Summon Shylock” feature showcases how the product is intended to work, live calls are limited to a small number of verified test numbers for now.
+
+Thanks for understanding — and I hope this demo still gives you a strong sense of the vision behind Shylock.
                 </p>
                 <p className="text-yellow-600 text-sm mt-2 font-medium">
                   Feel free to explore the interface and experience the AI-generated scripts!
