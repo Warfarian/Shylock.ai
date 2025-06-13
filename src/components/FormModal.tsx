@@ -72,7 +72,7 @@ As a result, while the “Summon Shylock” feature showcases how the product is
 Thanks for understanding — and I hope this demo still gives you a strong sense of the vision behind Shylock.
                 </p>
                 <p className="text-yellow-600 text-sm mt-2 font-medium">
-                  Feel free to explore the interface and experience the AI-generated scripts!
+                  Feel free to explore the interface and experience what could be Shylock.ai!
                 </p>
               </div>
             </div>
