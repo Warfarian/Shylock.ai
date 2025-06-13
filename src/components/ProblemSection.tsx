@@ -70,7 +70,8 @@ const ProblemSection: React.FC = () => {
               
               <div className="mb-6">
                 <p className="text-gray-800 leading-relaxed">
-                  "Hello, Sarah. This is regarding the <strong>$35</strong> from lunch at SS Hyderbadi Biryani... 
+                  "Ah, Sarah. This is regarding the <strong>$35</strong> from lunch at the Pizza
+                  Hut ... 
                   It's been a <strong>year</strong> now, and while time has passed gently, the debt remains, 
                   waiting patiently like an <em>old friend at your door...</em>"
                 </p>
