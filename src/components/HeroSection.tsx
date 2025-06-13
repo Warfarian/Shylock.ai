@@ -31,9 +31,9 @@ const HeroSection: React.FC = () => {
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}>
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tight mb-6">
-            AUTOMATE THE
+            NOTHING PERSONAL,
             <br />
-            <span className="text-gray-400">UNCOMFORTABLE</span>
+            <span className="text-gray-400">JUST PAYBACK</span>
           </h1>
           
           <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto mb-12 leading-relaxed">
