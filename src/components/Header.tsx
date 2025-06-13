@@ -21,7 +21,7 @@ const Header: React.FC = () => {
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-black/90 backdrop-blur-sm' : 'bg-transparent'
+      isScrolled ? 'bg-white/90 backdrop-blur-sm text-black' : 'bg-transparent text-black'
     }`}>
       <div className="section-padding container-max">
         <nav className="flex items-center justify-between py-6">
@@ -32,19 +32,19 @@ const Header: React.FC = () => {
           <div className="hidden md:flex items-center space-x-8">
             <button 
               onClick={() => scrollToSection('how-it-works')}
-              className="text-sm font-medium tracking-wide hover:text-gray-300 transition-colors"
+              className="text-sm font-medium tracking-wide hover:text-gray-600 transition-colors"
             >
               HOW IT WORKS
             </button>
             <button 
               onClick={() => scrollToSection('voices')}
-              className="text-sm font-medium tracking-wide hover:text-gray-300 transition-colors"
+              className="text-sm font-medium tracking-wide hover:text-gray-600 transition-colors"
             >
               VOICES
             </button>
             <button 
               onClick={() => scrollToSection('examples')}
-              className="text-sm font-medium tracking-wide hover:text-gray-300 transition-colors"
+              className="text-sm font-medium tracking-wide hover:text-gray-600 transition-colors"
             >
               EXAMPLES
             </button>
