@@ -22,7 +22,7 @@
   }
   
   .section-padding {
-    @apply px-6 md:px-12 lg:px-24;
+    @apply px-4 sm:px-6 md:px-12 lg:px-24;
   }
   
   .container-max {
@@ -56,5 +56,24 @@
     border-radius: 50%;
     cursor: pointer;
     box-sizing: border-box;
+  }
+
+  /* Mobile responsive text sizes */
+  @media (max-width: 768px) {
+    .text-responsive-xl {
+      @apply text-2xl;
+    }
+    .text-responsive-2xl {
+      @apply text-3xl;
+    }
+    .text-responsive-3xl {
+      @apply text-4xl;
+    }
+    .text-responsive-4xl {
+      @apply text-5xl;
+    }
+    .text-responsive-5xl {
+      @apply text-6xl;
+    }
   }
 }

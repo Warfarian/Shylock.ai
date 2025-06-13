@@ -45,18 +45,18 @@ const HowItWorksSection: React.FC = () => {
   ];
 
   return (
-    <section id="how-it-works" ref={sectionRef} className="py-32 bg-white text-black">
+    <section id="how-it-works" ref={sectionRef} className="py-16 md:py-32 bg-white text-black">
       <div className="section-padding container-max">
-        <div className="text-center mb-20">
-          <h2 className="text-5xl md:text-6xl font-black mb-6">
+        <div className="text-center mb-12 md:mb-20">
+          <h2 className="text-3xl md:text-5xl lg:text-6xl font-black mb-4 md:mb-6">
             THREE ACTS
           </h2>
-          <p className="text-2xl font-serif italic text-gray-600">
+          <p className="text-xl md:text-2xl font-serif italic text-gray-600">
             to resolution
           </p>
         </div>
         
-        <div className="grid md:grid-cols-3 gap-12 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-8 md:gap-12 max-w-6xl mx-auto">
           {steps.map((step, index) => (
             <div
               key={index}
@@ -66,15 +66,15 @@ const HowItWorksSection: React.FC = () => {
                   : 'opacity-0 translate-y-10'
               }`}
             >
-              <div className="w-24 h-24 border-4 border-black mx-auto mb-8 flex items-center justify-center">
-                <span className="text-2xl font-black">{step.number}</span>
+              <div className="w-16 h-16 md:w-24 md:h-24 border-4 border-black mx-auto mb-6 md:mb-8 flex items-center justify-center">
+                <span className="text-lg md:text-2xl font-black">{step.number}</span>
               </div>
               
-              <h3 className="text-2xl font-black mb-4 tracking-wide">
+              <h3 className="text-xl md:text-2xl font-black mb-3 md:mb-4 tracking-wide">
                 {step.title}
               </h3>
               
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-gray-600 leading-relaxed text-sm md:text-base">
                 {step.description}
               </p>
             </div>
@@ -82,13 +82,13 @@ const HowItWorksSection: React.FC = () => {
         </div>
         
         {/* Clock element */}
-        <div className="text-center mt-20">
+        <div className="text-center mt-12 md:mt-20">
           <div className="inline-flex items-center gap-4 text-gray-500">
-            <div className="w-8 h-8 border-2 border-gray-400 rounded-full relative">
-              <div className="absolute top-1 left-1/2 w-0.5 h-2 bg-gray-400 origin-bottom transform -translate-x-0.5 animate-pulse"></div>
-              <div className="absolute top-1/2 left-1 w-2 h-0.5 bg-gray-400 origin-left transform -translate-y-0.5"></div>
+            <div className="w-6 h-6 md:w-8 md:h-8 border-2 border-gray-400 rounded-full relative">
+              <div className="absolute top-1 left-1/2 w-0.5 h-1.5 md:h-2 bg-gray-400 origin-bottom transform -translate-x-0.5 animate-pulse"></div>
+              <div className="absolute top-1/2 left-1 w-1.5 md:w-2 h-0.5 bg-gray-400 origin-left transform -translate-y-0.5"></div>
             </div>
-            <p className="font-serif italic">
+            <p className="font-serif italic text-sm md:text-base">
               "Time doesn't erase debt. It just adds interest."
             </p>
           </div>

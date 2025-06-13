@@ -5,6 +5,7 @@ import HowItWorksSection from '../components/HowItWorksSection';
 import VoicesSection from '../components/VoicesSection';
 import ExamplesSection from '../components/ExamplesSection';
 import GlobalReachSection from '../components/GlobalReachSection';
+import LegalDisclaimer from '../components/LegalDisclaimer';
 import CTASection from '../components/CTASection';
 import Footer from '../components/Footer';
 import BoltBadge from '../components/BoltBadge';
@@ -19,6 +20,7 @@ const LandingPage: React.FC = () => {
         <VoicesSection />
         <ExamplesSection />
         <GlobalReachSection />
+        <LegalDisclaimer />
         <CTASection />
       </main>
       <Footer />

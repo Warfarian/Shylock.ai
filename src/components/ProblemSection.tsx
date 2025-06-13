@@ -24,28 +24,28 @@ const ProblemSection: React.FC = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-32 bg-black relative">
+    <section ref={sectionRef} className="py-16 md:py-32 bg-black relative">
       <div className="section-padding container-max">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 md:gap-16 items-center">
           {/* Left side - Content */}
           <div className={`transition-all duration-1000 ${
             isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
           }`}>
-            <h2 className="text-5xl md:text-6xl font-black mb-8">
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-black mb-6 md:mb-8">
               FRIENDS FORGET.
               <br />
               <span className="font-serif italic text-gray-400">Ledgers don't.</span>
             </h2>
             
-            <p className="text-xl text-gray-300 mb-8 leading-relaxed">
+            <p className="text-lg md:text-xl text-gray-300 mb-6 md:mb-8 leading-relaxed">
               Debts between friends get awkward. Shylock makes it <em className="font-serif">artistic</em> — 
               with persuasive, theatrical calls that preserve relationships while recovering what's rightfully yours.
             </p>
             
-            <div className={`border-l-2 border-white/30 pl-6 transition-all duration-1000 delay-500 ${
+            <div className={`border-l-2 border-white/30 pl-4 md:pl-6 transition-all duration-1000 delay-500 ${
               isTyping ? 'opacity-100' : 'opacity-0'
             }`}>
-              <p className="text-lg font-serif italic text-gray-200 typewriter">
+              <p className="text-base md:text-lg font-serif italic text-gray-200 typewriter">
                 "Time doesn't erase debt. It just adds interest."
               </p>
             </div>
@@ -55,21 +55,21 @@ const ProblemSection: React.FC = () => {
           <div className={`transition-all duration-1000 delay-300 ${
             isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'
           }`}>
-            <div className="bg-white text-black p-8 rounded-lg shadow-2xl max-w-md mx-auto">
-              <div className="flex items-center gap-3 mb-6">
+            <div className="bg-white text-black p-6 md:p-8 rounded-lg shadow-2xl max-w-md mx-auto">
+              <div className="flex items-center gap-3 mb-4 md:mb-6">
                 <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
-                <span className="text-sm font-medium text-green-600">CALL IN PROGRESS</span>
+                <span className="text-xs md:text-sm font-medium text-green-600">CALL IN PROGRESS</span>
                 <div className="ml-auto">
                   <div className="flex gap-1">
-                    <div className="w-1 h-4 bg-gray-300"></div>
-                    <div className="w-1 h-6 bg-gray-400"></div>
-                    <div className="w-1 h-3 bg-gray-300"></div>
+                    <div className="w-1 h-3 md:h-4 bg-gray-300"></div>
+                    <div className="w-1 h-4 md:h-6 bg-gray-400"></div>
+                    <div className="w-1 h-2 md:h-3 bg-gray-300"></div>
                   </div>
                 </div>
               </div>
               
-              <div className="mb-6">
-                <p className="text-gray-800 leading-relaxed">
+              <div className="mb-4 md:mb-6">
+                <p className="text-sm md:text-base text-gray-800 leading-relaxed">
                   "Ah, Sarah. This is regarding the <strong>$35</strong> from lunch at the Pizza
                   Hut ... 
                   It's been a <strong>year</strong> now, and while time has passed gently, the debt remains, 
@@ -77,8 +77,8 @@ const ProblemSection: React.FC = () => {
                 </p>
               </div>
               
-              <div className="flex items-center gap-2 text-sm text-gray-600">
-                <div className="w-4 h-4 rounded-full border-2 border-gray-400 flex items-center justify-center">
+              <div className="flex items-center gap-2 text-xs md:text-sm text-gray-600">
+                <div className="w-3 md:w-4 h-3 md:h-4 rounded-full border-2 border-gray-400 flex items-center justify-center">
                   <div className="w-1 h-1 bg-gray-400 rounded-full"></div>
                 </div>
                 <span>DURATION: 1:23</span>

@@ -49,10 +49,10 @@ const VoicesSection: React.FC = () => {
   ];
 
   return (
-    <section id="voices" ref={sectionRef} className="py-32 bg-black">
+    <section id="voices" ref={sectionRef} className="py-16 md:py-32 bg-black">
       <div className="section-padding container-max">
-        <div className="text-center mb-20">
-          <h2 className={`text-5xl md:text-6xl font-black mb-6 transition-all duration-1000 ${
+        <div className="text-center mb-12 md:mb-20">
+          <h2 className={`text-3xl md:text-5xl lg:text-6xl font-black mb-4 md:mb-6 transition-all duration-1000 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
             VOICES WITH
@@ -61,34 +61,34 @@ const VoicesSection: React.FC = () => {
           </h2>
         </div>
         
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
           {voices.map((voice, index) => (
             <div
               key={index}
-              className={`bg-white/5 p-8 border border-white/10 hover:bg-white/10 transition-all duration-500 group cursor-pointer ${
+              className={`bg-white/5 p-6 md:p-8 border border-white/10 hover:bg-white/10 transition-all duration-500 group cursor-pointer ${
                 isVisible 
                   ? 'opacity-100 translate-y-0' 
                   : 'opacity-0 translate-y-10'
               }`}
               style={{ transitionDelay: `${index * 150}ms` }}
             >
-              <div className="mb-6">
-                <h3 className="text-2xl font-bold mb-2">{voice.name}</h3>
-                <p className="text-gray-400 text-sm font-mono tracking-wide">
+              <div className="mb-4 md:mb-6">
+                <h3 className="text-xl md:text-2xl font-bold mb-2">{voice.name}</h3>
+                <p className="text-gray-400 text-xs md:text-sm font-mono tracking-wide">
                   {voice.style.toUpperCase()}
                 </p>
               </div>
               
-              <blockquote className="text-gray-300 font-serif italic mb-6 leading-relaxed">
+              <blockquote className="text-gray-300 font-serif italic mb-4 md:mb-6 leading-relaxed text-sm md:text-base">
                 {voice.sample}
               </blockquote>
               
-              <p className="text-sm text-gray-500 leading-relaxed">
+              <p className="text-xs md:text-sm text-gray-500 leading-relaxed">
                 {voice.personality}
               </p>
               
               {/* Waveform visualization */}
-              <div className="mt-6 flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+              <div className="mt-4 md:mt-6 flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
                 {[...Array(12)].map((_, i) => (
                   <div
                     key={i}
