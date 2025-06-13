@@ -39,7 +39,7 @@ const HeroSection: React.FC = () => {
           <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto mb-12 leading-relaxed">
             Because nothing says ‘pay up’ like a voice that won’t shut up.
             <br className="hidden md:block" />
-            <em className="font-serif">as stories, not threats.</em>
+            <em className="font-serif">Automate the uncomfortable.</em>
           </p>
           
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
