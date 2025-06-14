@@ -73,12 +73,12 @@ const TicketGenerator: React.FC = () => {
       <div className="section-padding container-max">
         {/* Header */}
         <div className="mb-12">
-          <h1 className="text-6xl font-black mb-4">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black mb-4">
             TICKET
             <br />
             <span className="font-serif italic text-gray-400">GENERATOR</span>
           </h1>
-          <p className="text-xl text-gray-300">
+          <p className="text-lg sm:text-xl text-gray-300">
             Create shareable IOUs with theatrical flair
           </p>
         </div>
@@ -129,12 +129,12 @@ const TicketGenerator: React.FC = () => {
               <label className="block text-sm font-bold mb-3 tracking-wide">
                 STYLE
               </label>
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {ticketStyles.map((style) => (
                   <button
                     key={style.id}
                     onClick={() => setTicketData({...ticketData, style: style.id})}
-                    className={`p-4 border text-left transition-all ${
+                    className={`p-3 sm:p-4 border text-left transition-all ${
                       ticketData.style === style.id
                         ? 'bg-white text-black border-white'
                         : 'bg-white/5 border-white/10 hover:bg-white/10'
@@ -161,10 +161,10 @@ const TicketGenerator: React.FC = () => {
             <h2 className="text-2xl font-black">PREVIEW</h2>
             
             {generatedTicket && ticketContent ? (
-              <div className="bg-white text-black p-8 border-4 border-dashed border-gray-300 relative">
+              <div className="bg-white text-black p-4 sm:p-8 border-4 border-dashed border-gray-300 relative">
                 {/* Ticket Header */}
                 <div className="text-center mb-8">
-                  <h3 className="text-3xl font-black mb-2">{ticketContent.title}</h3>
+                  <h3 className="text-2xl sm:text-3xl font-black mb-2">{ticketContent.title}</h3>
                   <p className="text-gray-600 font-serif italic">{ticketContent.subtitle}</p>
                 </div>
 
@@ -176,12 +176,12 @@ const TicketGenerator: React.FC = () => {
                 </div>
 
                 {/* Ticket Footer */}
-                <div className="border-t-2 border-dashed border-gray-300 pt-6 flex justify-between items-center">
-                  <div>
+                <div className="border-t-2 border-dashed border-gray-300 pt-6 flex flex-col sm:flex-row justify-between items-center">
+                  <div className="mb-4 sm:mb-0">
                     <div className="text-xs text-gray-500">TICKET ID</div>
                     <div className="font-mono text-sm">{generatedTicket.id}</div>
                   </div>
-                  <div className="text-right">
+                  <div className="text-center sm:text-right">
                     <div className="text-xs text-gray-500">{ticketContent.footer}</div>
                     <div className="font-mono text-xs text-gray-400">{generatedTicket.qrCode}</div>
                   </div>
@@ -201,7 +201,7 @@ const TicketGenerator: React.FC = () => {
 
             {/* Actions */}
             {generatedTicket && (
-              <div className="flex gap-3">
+              <div className="flex flex-col sm:flex-row gap-3">
                 <button className="flex-1 bg-white/5 border border-white/10 py-3 px-4 hover:bg-white/10 transition-colors flex items-center justify-center gap-2">
                   <Download size={16} />
                   DOWNLOAD

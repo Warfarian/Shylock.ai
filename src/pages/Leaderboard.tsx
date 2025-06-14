@@ -70,24 +70,24 @@ const Leaderboard: React.FC = () => {
       <div className="section-padding container-max">
         {/* Header */}
         <div className="mb-12">
-          <h1 className="text-6xl font-black mb-4">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black mb-4">
             LEADER
             <br />
             <span className="font-serif italic text-gray-400">BOARD</span>
           </h1>
-          <p className="text-xl text-gray-300">
+          <p className="text-lg sm:text-xl text-gray-300">
             Where legends are ranked and reputations are made
           </p>
         </div>
 
         {/* Category Tabs */}
         <div className="flex justify-center mb-12">
-          <div className="flex bg-white/5 border border-white/10 overflow-hidden">
+          <div className="flex flex-wrap bg-white/5 border border-white/10 overflow-hidden">
             {categories.map((category) => (
               <button
                 key={category.id}
                 onClick={() => setActiveCategory(category.id)}
-                className={`px-8 py-4 font-semibold tracking-wide transition-all flex items-center gap-2 ${
+                className={`px-4 py-3 sm:px-8 sm:py-4 font-semibold tracking-wide transition-all flex items-center gap-2 ${
                   activeCategory === category.id
                     ? 'bg-white text-black'
                     : 'bg-transparent text-white hover:bg-white/10'
@@ -148,18 +148,20 @@ const Leaderboard: React.FC = () => {
           {/* Full Rankings */}
           <div className="bg-white/5 border border-white/10 overflow-hidden">
             {/* Header */}
-            <div className="grid grid-cols-12 gap-4 p-6 border-b border-white/10 bg-white/5">
-              <div className="col-span-1 font-black text-sm tracking-wide">RANK</div>
-              <div className="col-span-4 font-black text-sm tracking-wide">PLAYER</div>
-              <div className="col-span-2 font-black text-sm tracking-wide">SCORE</div>
-              <div className="col-span-2 font-black text-sm tracking-wide">AMOUNT</div>
-              <div className="col-span-3 font-black text-sm tracking-wide">ACHIEVEMENT</div>
+            <div className="overflow-x-auto">
+              <div className="grid grid-cols-12 gap-4 p-6 border-b border-white/10 bg-white/5 min-w-[700px]">
+                <div className="col-span-1 font-black text-sm tracking-wide">RANK</div>
+                <div className="col-span-4 font-black text-sm tracking-wide">PLAYER</div>
+                <div className="col-span-2 font-black text-sm tracking-wide">SCORE</div>
+                <div className="col-span-2 font-black text-sm tracking-wide">AMOUNT</div>
+                <div className="col-span-3 font-black text-sm tracking-wide">ACHIEVEMENT</div>
+              </div>
             </div>
 
             {/* Rows */}
-            <div className="divide-y divide-white/10">
+            <div className="divide-y divide-white/10 overflow-x-auto">
               {activeData.map((user) => (
-                <div key={user.name} className="grid grid-cols-12 gap-4 p-6 hover:bg-white/5 transition-colors">
+                <div key={user.name} className="grid grid-cols-12 gap-4 p-6 hover:bg-white/5 transition-colors min-w-[700px]">
                   <div className="col-span-1 flex items-center">
                     {getRankIcon(user.rank)}
                   </div>
@@ -182,7 +184,7 @@ const Leaderboard: React.FC = () => {
           </div>
 
           {/* Category Stats */}
-          <div className="mt-12 grid md:grid-cols-3 gap-6">
+          <div className="mt-12 grid grid-cols-2 md:grid-cols-3 gap-6">
             <div className="bg-white/5 border border-white/10 p-6 text-center">
               <div className="text-2xl font-black mb-2">
                 {activeCategory === 'collected' ? '91' : 
@@ -203,7 +205,7 @@ const Leaderboard: React.FC = () => {
                  activeCategory === 'fastest' ? 'FASTEST TIME' : 'LONGEST SILENCE'}
               </div>
             </div>
-            <div className="bg-white/5 border border-white/10 p-6 text-center">
+            <div className="bg-white/5 border border-white/10 p-6 text-center col-span-2 md:col-span-1">
               <div className="text-2xl font-black mb-2">
                 {activeCategory === 'collected' ? '87%' : 
                  activeCategory === 'fastest' ? '94%' : '23%'}

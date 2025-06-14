@@ -96,12 +96,12 @@ const DebtLedger: React.FC = () => {
       <div className="section-padding container-max">
         {/* Header */}
         <div className="mb-12">
-          <h1 className="text-6xl font-black mb-4">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black mb-4">
             THE
             <br />
             <span className="font-serif italic text-gray-400">LEDGER</span>
           </h1>
-          <p className="text-xl text-gray-300">
+          <p className="text-lg sm:text-xl text-gray-300">
             Every debt tells a story. Here are yours.
           </p>
         </div>
@@ -121,12 +121,12 @@ const DebtLedger: React.FC = () => {
           </div>
 
           {/* Filters */}
-          <div className="flex gap-2">
+          <div className="flex flex-wrap gap-2">
             {['all', 'pending', 'responded', 'settled', 'overdue'].map((status) => (
               <button
                 key={status}
                 onClick={() => setFilter(status)}
-                className={`px-6 py-4 font-semibold tracking-wide transition-all ${
+                className={`px-4 py-3 sm:px-6 sm:py-4 font-semibold tracking-wide transition-all ${
                   filter === status
                     ? 'bg-white text-black'
                     : 'bg-white/5 text-white hover:bg-white/10'
@@ -141,19 +141,21 @@ const DebtLedger: React.FC = () => {
         {/* Ledger Table */}
         <div className="bg-white/5 border border-white/10 overflow-hidden">
           {/* Header */}
-          <div className="grid grid-cols-12 gap-4 p-6 border-b border-white/10 bg-white/5">
-            <div className="col-span-3 font-black text-sm tracking-wide">FRIEND</div>
-            <div className="col-span-2 font-black text-sm tracking-wide">AMOUNT</div>
-            <div className="col-span-2 font-black text-sm tracking-wide">STATUS</div>
-            <div className="col-span-2 font-black text-sm tracking-wide">TIME SINCE</div>
-            <div className="col-span-2 font-black text-sm tracking-wide">LAST ACTION</div>
-            <div className="col-span-1 font-black text-sm tracking-wide">ACTION</div>
+          <div className="overflow-x-auto">
+            <div className="grid grid-cols-12 gap-4 p-6 border-b border-white/10 bg-white/5 min-w-[700px]">
+              <div className="col-span-3 font-black text-sm tracking-wide">FRIEND</div>
+              <div className="col-span-2 font-black text-sm tracking-wide">AMOUNT</div>
+              <div className="col-span-2 font-black text-sm tracking-wide">STATUS</div>
+              <div className="col-span-2 font-black text-sm tracking-wide">TIME SINCE</div>
+              <div className="col-span-2 font-black text-sm tracking-wide">LAST ACTION</div>
+              <div className="col-span-1 font-black text-sm tracking-wide">ACTION</div>
+            </div>
           </div>
 
           {/* Rows */}
-          <div className="divide-y divide-white/10">
+          <div className="divide-y divide-white/10 overflow-x-auto">
             {filteredDebts.map((debt) => (
-              <div key={debt.id} className="grid grid-cols-12 gap-4 p-6 hover:bg-white/5 transition-colors group">
+              <div key={debt.id} className="grid grid-cols-12 gap-4 p-6 hover:bg-white/5 transition-colors group min-w-[700px]">
                 <div className="col-span-3">
                   <div className="font-semibold">{debt.name}</div>
                   <div className="text-sm text-gray-400 mt-1">{debt.reason}</div>
@@ -187,7 +189,7 @@ const DebtLedger: React.FC = () => {
         </div>
 
         {/* Summary */}
-        <div className="mt-12 grid md:grid-cols-4 gap-6">
+        <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6">
           <div className="bg-white/5 border border-white/10 p-6 text-center">
             <div className="text-2xl font-black mb-2">
               ${filteredDebts.reduce((sum, debt) => sum + parseFloat(debt.amount.replace('$', '')), 0).toFixed(2)}

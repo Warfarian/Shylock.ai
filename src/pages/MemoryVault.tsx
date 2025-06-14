@@ -105,12 +105,12 @@ const MemoryVault: React.FC = () => {
       <div className="section-padding container-max">
         {/* Header */}
         <div className="mb-12">
-          <h1 className="text-6xl font-black mb-4">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black mb-4">
             MEMORY
             <br />
             <span className="font-serif italic text-gray-400">VAULT</span>
           </h1>
-          <p className="text-xl text-gray-300">
+          <p className="text-lg sm:text-xl text-gray-300">
             Every debt tells a story. Here's your archive.
           </p>
         </div>
@@ -130,12 +130,12 @@ const MemoryVault: React.FC = () => {
           </div>
 
           {/* Type Filter */}
-          <div className="flex gap-2">
+          <div className="flex flex-wrap gap-2">
             {['all', 'image', 'voice', 'text'].map((type) => (
               <button
                 key={type}
                 onClick={() => setFilterType(type)}
-                className={`px-6 py-4 font-semibold tracking-wide transition-all flex items-center gap-2 ${
+                className={`px-4 py-3 sm:px-6 sm:py-4 font-semibold tracking-wide transition-all flex items-center gap-2 ${
                   filterType === type
                     ? 'bg-white text-black'
                     : 'bg-white/5 text-white hover:bg-white/10'
@@ -203,7 +203,7 @@ const MemoryVault: React.FC = () => {
         </div>
 
         {/* Stats */}
-        <div className="mt-16 grid md:grid-cols-4 gap-6">
+        <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6">
           <div className="bg-white/5 border border-white/10 p-6 text-center">
             <div className="text-2xl font-black mb-2">{memories.length}</div>
             <div className="text-sm text-gray-400">TOTAL MEMORIES</div>

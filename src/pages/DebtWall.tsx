@@ -107,24 +107,24 @@ const DebtWall: React.FC = () => {
       <div className="section-padding container-max">
         {/* Header */}
         <div className="mb-12">
-          <h1 className="text-6xl font-black mb-4">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black mb-4">
             THE DEBT
             <br />
             <span className="font-serif italic text-gray-400">WALL</span>
           </h1>
-          <p className="text-xl text-gray-300">
+          <p className="text-lg sm:text-xl text-gray-300">
             Fame or shame — where legends are made
           </p>
         </div>
 
         {/* Tabs */}
         <div className="flex justify-center mb-12">
-          <div className="flex bg-white/5 border border-white/10 overflow-hidden">
+          <div className="flex flex-wrap bg-white/5 border border-white/10 overflow-hidden">
             {tabs.map((tab) => (
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`px-8 py-4 font-semibold tracking-wide transition-all flex items-center gap-2 ${
+                className={`px-4 py-3 sm:px-8 sm:py-4 font-semibold tracking-wide transition-all flex items-center gap-2 ${
                   activeTab === tab.id
                     ? 'bg-white text-black'
                     : 'bg-transparent text-white hover:bg-white/10'

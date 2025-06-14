@@ -112,12 +112,12 @@ const ActivityFeed: React.FC = () => {
       <div className="section-padding container-max">
         {/* Header */}
         <div className="mb-12">
-          <h1 className="text-6xl font-black mb-4">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black mb-4">
             ACTIVITY
             <br />
             <span className="font-serif italic text-gray-400">TIMELINE</span>
           </h1>
-          <p className="text-xl text-gray-300">
+          <p className="text-lg sm:text-xl text-gray-300">
             Every action, every response, every resolution.
           </p>
         </div>
@@ -126,26 +126,26 @@ const ActivityFeed: React.FC = () => {
         <div className="max-w-4xl mx-auto">
           <div className="relative">
             {/* Timeline line */}
-            <div className="absolute left-8 top-0 bottom-0 w-px bg-white/20"></div>
+            <div className="absolute left-4 sm:left-8 top-0 bottom-0 w-px bg-white/20"></div>
             
             <div className="space-y-8">
               {activities.map((activity, index) => (
-                <div key={activity.id} className="relative flex items-start gap-8">
+                <div key={activity.id} className="relative flex items-start gap-4 sm:gap-8">
                   {/* Timeline dot */}
-                  <div className={`relative z-10 w-16 h-16 rounded-full border-2 flex items-center justify-center ${getStatusColor(activity.status)}`}>
+                  <div className={`relative z-10 w-12 h-12 sm:w-16 sm:h-16 rounded-full border-2 flex items-center justify-center ${getStatusColor(activity.status)}`}>
                     {getIcon(activity.type)}
                   </div>
                   
                   {/* Content */}
-                  <div className="flex-1 bg-white/5 border border-white/10 p-8 hover:bg-white/10 transition-colors">
-                    <div className="flex items-start justify-between mb-4">
-                      <div>
+                  <div className="flex-1 bg-white/5 border border-white/10 p-4 sm:p-8 hover:bg-white/10 transition-colors">
+                    <div className="flex flex-col sm:flex-row sm:items-start justify-between mb-4">
+                      <div className="mb-2 sm:mb-0">
                         <h3 className="text-xl font-bold mb-1">{activity.action}</h3>
                         <p className="text-gray-400">
                           <span className="font-semibold">{activity.friend}</span> • {activity.amount}
                         </p>
                       </div>
-                      <div className="text-right">
+                      <div className="text-left sm:text-right">
                         <div className="text-sm text-gray-400">{activity.time}</div>
                         <div className={`text-xs font-mono mt-1 px-2 py-1 rounded border ${getStatusColor(activity.status)}`}>
                           {activity.status.toUpperCase()}
@@ -162,7 +162,7 @@ const ActivityFeed: React.FC = () => {
         </div>
 
         {/* Stats */}
-        <div className="mt-16 grid md:grid-cols-4 gap-6">
+        <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6">
           <div className="bg-white/5 border border-white/10 p-6 text-center">
             <div className="text-2xl font-black mb-2">
               {activities.filter(a => a.type === 'call').length}
