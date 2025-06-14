@@ -213,7 +213,7 @@ const FormModal: React.FC = () => {
               <textarea
                 value={formData.reason}
                 onChange={(e) => updateFormField('reason', e.target.value)}
-                placeholder="Paid for lunch at "
+                placeholder="Paid for lunch at Fusili"
                 rows={4}
                 className="w-full p-4 border-2 border-gray-300 focus:border-black focus:outline-none text-lg resize-none"
                 required
