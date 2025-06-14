@@ -62,17 +62,24 @@ const FormModal: React.FC = () => {
               <AlertTriangle className="text-yellow-400 mr-3 mt-1" size={20} />
               <div>
                 <h3 className="text-lg font-bold text-yellow-800 mb-2">Demo Limitation Notice</h3>
-                <p className="text-yellow-700 leading-relaxed">
-                  <strong>Student Account Restriction:</strong> Due to Twilio’s trial account restrictions, this demo currently works only with pre-verified phone numbers. As a student developer participating in the world’s largest hackathon, I don’t yet have access to the upgraded features needed to make real calls to unverified numbers.
-
-Additionally, bringing this experience to life relies on multiple paid services — including Retell AI for voice calling, ElevenLabs for custom voice synthesis, and Twilio for telephony infrastructure. Combined, these services can be prohibitively expensive, especially for an independent student builder like myself.
-
-As a result, while the “Summon Shylock” feature showcases how the product is intended to work, live calls are limited to a small number of verified test numbers for now.
-
-Thanks for understanding — and I hope this demo still gives you a strong sense of the vision behind Shylock.
+                <p className="text-yellow-700 leading-relaxed mb-4">
+                  <strong>Student Account Restriction:</strong> Due to Twilio's trial account restrictions, this demo currently works only with pre-verified phone numbers. As a student developer participating in the world's largest hackathon, I don't yet have access to the upgraded features needed to make real calls to unverified numbers.
                 </p>
-                <p className="text-yellow-600 text-sm mt-2 font-medium">
-                  Feel free to explore the interface and experience what could be Shylock.ai! Also vote for me!!
+                
+                <p className="text-yellow-700 leading-relaxed mb-4">
+                  <strong>High Service Costs:</strong> Due to the high cost of voice, AI, and telephony services, this demo currently has limited call capacity. Each call uses advanced voice synthesis, language processing, and carrier-grade telephony — services powered by Retell AI and ElevenLabs — which cost real money per minute. As a student developer self-funding this project, I've capped the daily calls to stay within budget.
+                </p>
+                
+                <p className="text-yellow-700 leading-relaxed mb-4">
+                  You're welcome to try it out, but availability may reset every 24 hours. For the full experience, I recommend joining the waitlist or reaching out for early access once the app scales up.
+                </p>
+                
+                <p className="text-yellow-700 leading-relaxed">
+                  Additionally, bringing this experience to life relies on multiple paid services — including Retell AI for voice calling, ElevenLabs for custom voice synthesis, and Twilio for telephony infrastructure. Combined, these services can be prohibitively expensive, especially for an independent student builder like myself.
+                </p>
+                
+                <p className="text-yellow-600 text-sm mt-4 font-medium">
+                  Thanks for understanding — and testing the future of awkward debt recovery! Feel free to explore the interface and experience what could be Shylock.ai! Also vote for me!!
                 </p>
               </div>
             </div>
