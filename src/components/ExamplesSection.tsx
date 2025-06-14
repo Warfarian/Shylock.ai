@@ -54,7 +54,7 @@ const ExamplesSection: React.FC = () => {
     {
       type: 'Aggressive',
       title: 'The Serious Approach',
-      script: `"The call involved an agent named Shylock representing Harry, who was seeking repayment of a five-dollar debt from Peter. After some back and forth, Peter initially refused to pay but ultimately agreed to settle the debt, expressing remorse for the situation."`,
+      script: `"The call involved Shylock representing Harry, who was seeking repayment of a five-dollar debt from Peter. After some back and forth, Peter initially refused to pay but ultimately agreed to settle the debt, expressing remorse for the situation."`,
       tone: 'Assertive, persistent, gets results',
       audioSrc: '/aggressive_sample.mp3',
       duration: '2:12'
