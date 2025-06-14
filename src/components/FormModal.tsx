@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useForm } from '../context/FormContext';
 import { X, ArrowLeft, Phone, AlertTriangle } from 'lucide-react';
 
 const FormModal: React.FC = () => {
   const { isFormOpen, setIsFormOpen, formData, updateFormField } = useForm();
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
     if (isFormOpen) {
@@ -17,12 +18,46 @@ const FormModal: React.FC = () => {
     };
   }, [isFormOpen]);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    // Here you would typically send the data to your backend
-    alert('Shylock has been summoned! You will receive a confirmation shortly.');
-    setIsFormOpen(false);
+    setIsSubmitting(true);
+
+    try {
+      // Map form data to the expected API structure
+      const apiData = {
+        collector_name: formData.collector_name,
+        friend_name: formData.friend_name,
+        phone_number: formData.phone_number,
+        amount: formData.amount,
+        reason: formData.reason,
+        time_since: formData.time_since,
+        tone: {
+          serious: formData.tone.serious,
+          aggressive: formData.tone.aggressive,
+          guilt: formData.tone.guilt
+        }
+      };
+
+      const response = await fetch('https://hook.eu2.make.com/6eyvi2c7dg84pvjxnmfk9xkb4khnbcq1', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(apiData)
+      });
+
+      if (response.ok) {
+        alert('Shylock has been summoned! Your theatrical intervention is being prepared...');
+        setIsFormOpen(false);
+      } else {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      alert('Failed to summon Shylock. Please try again or check your connection.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (!isFormOpen) return null;
@@ -303,10 +338,15 @@ const FormModal: React.FC = () => {
             <div className="pt-8">
               <button
                 type="submit"
-                className="w-full bg-black text-white py-6 text-xl font-bold tracking-wide hover:bg-gray-800 transition-colors flex items-center justify-center gap-3"
+                disabled={isSubmitting}
+                className={`w-full py-6 text-xl font-bold tracking-wide flex items-center justify-center gap-3 transition-colors ${
+                  isSubmitting 
+                    ? 'bg-gray-400 text-gray-600 cursor-not-allowed' 
+                    : 'bg-black text-white hover:bg-gray-800'
+                }`}
               >
                 <Phone size={24} />
-                SUMMON SHYLOCK
+                {isSubmitting ? 'SUMMONING SHYLOCK...' : 'SUMMON SHYLOCK'}
               </button>
             </div>
           </form>
