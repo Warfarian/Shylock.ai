@@ -36,14 +36,14 @@ const ExamplesSection: React.FC = () => {
 
   const examples = [
     {
-      type: 'Poetic',
+      type: 'Standard',
       title: 'The Gentle Reminder',
       script: `"Dear friend, like autumn leaves that fall and wait for spring's return, 
       your debt of $150 rests quietly in the ledger of our friendship. 
       The seasons have turned twice since our dinner at Chez Laurent, 
       and while memories fade, numbers remain eternal..."`,
       tone: 'Elegant, metaphorical, non-confrontational',
-      audioSrc: '/audio/poetic_sample.mp3',
+      audioSrc: '/usual_sample.mp3',
       duration: '2:34'
     },
     {
@@ -54,18 +54,18 @@ const ExamplesSection: React.FC = () => {
       extended to 120 days. I trust we can resolve this matter with the same 
       efficiency you'd expect in your own business dealings..."`,
       tone: 'Direct, professional, appeals to business sense',
-      audioSrc: '/audio/firm_sample.mp3',
+      audioSrc: '/firm_sample.mp3',
       duration: '1:58'
     },
     {
-      type: 'Humorous',
-      title: 'The Light Touch',
-      script: `"Hello! Your friendly neighborhood debt collector here - though I prefer 
-      'Financial Relationship Counselor.' That $45 from our pizza adventure has been 
+      type: 'Aggressive',
+      title: 'The Serious Approach',
+      script: `"Listen carefully. That $45 from our pizza adventure has been 
       practicing social distancing from your wallet for quite some time now. 
-      Perhaps it's time for a reunion?"`,
-      tone: 'Playful, light-hearted, maintains friendship',
-      audioSrc: '/audio/humorous_sample.mp3',
+      This isn't a request anymore — it's a demand. Time to face the music 
+      and settle what you owe."`,
+      tone: 'Assertive, direct, no-nonsense approach',
+      audioSrc: '/aggressive_sample.mp3',
       duration: '2:12'
     },
   ];
@@ -171,17 +171,6 @@ const ExamplesSection: React.FC = () => {
                 <span className="text-xs md:text-sm text-gray-600 font-mono">
                   {examples[activeExample].duration}
                 </span>
-              </div>
-              
-              {/* Audio file notice */}
-              <div className="mt-4 p-3 bg-yellow-50 border-l-4 border-yellow-400 text-sm">
-                <p className="text-yellow-700">
-                  <strong>Demo Note:</strong> Audio files are placeholders. To hear actual voice samples, 
-                  add MP3 files to the <code className="bg-yellow-100 px-1 rounded">/public/audio/</code> directory 
-                  with names: <code className="bg-yellow-100 px-1 rounded">poetic_sample.mp3</code>, 
-                  <code className="bg-yellow-100 px-1 rounded">firm_sample.mp3</code>, and 
-                  <code className="bg-yellow-100 px-1 rounded">humorous_sample.mp3</code>.
-                </p>
               </div>
             </div>
           </div>
