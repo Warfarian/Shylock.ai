@@ -37,34 +37,25 @@ const ExamplesSection: React.FC = () => {
   const examples = [
     {
       type: 'Standard',
-      title: 'The Gentle Reminder',
-      script: `"Dear friend, like autumn leaves that fall and wait for spring's return, 
-      your debt of $150 rests quietly in the ledger of our friendship. 
-      The seasons have turned twice since our dinner at Chez Laurent, 
-      and while memories fade, numbers remain eternal..."`,
-      tone: 'Elegant, metaphorical, non-confrontational',
+      title: 'The Professional Call',
+      script: `"The call involved an agent named Shylock representing John Carpenter, who was addressing Arsh about an unpaid debt of thirty-five dollars. The agent used a dramatic tone to emphasize the importance of settling the debt, and the call ended with Arsh acknowledging the situation."`,
+      tone: 'Professional, dramatic, emphasizes importance',
       audioSrc: '/usual_sample.mp3',
       duration: '2:34'
     },
     {
       type: 'Firm',
       title: 'The Business Call',
-      script: `"This is regarding the outstanding amount of $75 from March 15th. 
-      Professional courtesy suggests a 30-day payment window, which has now 
-      extended to 120 days. I trust we can resolve this matter with the same 
-      efficiency you'd expect in your own business dealings..."`,
-      tone: 'Direct, professional, appeals to business sense',
+      script: `"The call was initiated by an agent named Shylock, representing Mario, who confronted Luigi about an outstanding debt of twenty euros. The agent emphasized the importance of honor and camaraderie, urging Luigi to settle the debt today. The call ended shortly after Luigi acknowledged the agent's message."`,
+      tone: 'Direct, appeals to honor and friendship',
       audioSrc: '/firm_sample.mp3',
       duration: '1:58'
     },
     {
       type: 'Aggressive',
       title: 'The Serious Approach',
-      script: `"Listen carefully. That $45 from our pizza adventure has been 
-      practicing social distancing from your wallet for quite some time now. 
-      This isn't a request anymore — it's a demand. Time to face the music 
-      and settle what you owe."`,
-      tone: 'Assertive, direct, no-nonsense approach',
+      script: `"The call involved an agent named Shylock representing Harry, who was seeking repayment of a five-dollar debt from Peter. After some back and forth, Peter initially refused to pay but ultimately agreed to settle the debt, expressing remorse for the situation."`,
+      tone: 'Assertive, persistent, gets results',
       audioSrc: '/aggressive_sample.mp3',
       duration: '2:12'
     },
