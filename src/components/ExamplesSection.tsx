@@ -46,7 +46,7 @@ const ExamplesSection: React.FC = () => {
     {
       type: 'Firm',
       title: 'The Business Call',
-      script: `"The call was initiated by an agent named Shylock, representing Mario, who confronted Luigi about an outstanding debt of twenty euros. The agent emphasized the importance of honor and camaraderie, urging Luigi to settle the debt today. The call ended shortly after Luigi acknowledged the agent's message."`,
+      script: `"The call was initiated by Shylock, representing Mario, who confronted Luigi about an outstanding debt of twenty euros. The agent emphasized the importance of honor and camaraderie, urging Luigi to settle the debt today. The call ended shortly after Luigi acknowledged the agent's message."`,
       tone: 'Direct, appeals to honor and friendship',
       audioSrc: '/firm_sample.mp3',
       duration: '1:58'
