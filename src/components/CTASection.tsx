@@ -67,7 +67,7 @@ const CTASection: React.FC = () => {
               type="submit"
               className="btn-primary text-base md:text-lg px-8 md:px-12 py-3 md:py-4 whitespace-nowrap"
             >
-              TRY IT NOW
+              JOIN THE WAITLIST
             </button>
           </form>
           
