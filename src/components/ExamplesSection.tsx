@@ -38,7 +38,7 @@ const ExamplesSection: React.FC = () => {
     {
       type: 'Standard',
       title: 'The Professional Call',
-      script: `"The call involved an agent named Shylock representing John Carpenter, who was addressing Arsh about an unpaid debt of thirty-five dollars. The agent used a dramatic tone to emphasize the importance of settling the debt, and the call ended with Arsh acknowledging the situation."`,
+      script: `"The call involved Shylock representing John Carpenter, who was addressing Arsh about an unpaid debt of thirty-five dollars. The agent used a dramatic tone to emphasize the importance of settling the debt, and the call ended with Arsh acknowledging the situation."`,
       tone: 'Professional, dramatic, emphasizes importance',
       audioSrc: '/usual_sample.mp3',
       duration: '2:34'
