@@ -38,7 +38,7 @@ const HeroSection: React.FC = () => {
           
           <p className="text-lg md:text-xl lg:text-2xl text-gray-300 max-w-4xl mx-auto mb-8 md:mb-12 leading-relaxed px-4">
             Because nothing says 'pay up' like a voice that won't shut up.
-            <br className="hidden md:block" />
+            <br />
             <em className="font-serif">Automate the uncomfortable.</em>
           </p>
           
@@ -60,7 +60,7 @@ const HeroSection: React.FC = () => {
       </div>
       
       {/* Scroll indicator */}
-      <div className="absolute bottom-16 sm:bottom-8 left-1/2 transform -translate-x-1/2">
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
         <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
           <div className="w-1 h-3 bg-white/50 rounded-full mt-2 animate-pulse"></div>
         </div>
