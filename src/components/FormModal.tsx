@@ -237,7 +237,7 @@ const FormModal: React.FC = () => {
                       <h4 className="text-xl font-bold">GRAVITAS</h4>
                       <div className="flex justify-between text-sm text-gray-600 mt-2">
                         <span>CASUAL</span>
-                        <span>FUNERAL</span>
+                        <span>- FUNERAL</span>
                       </div>
                     </div>
                     <div className="bg-black text-white px-4 py-2 font-bold">
@@ -251,7 +251,7 @@ const FormModal: React.FC = () => {
                       max="100"
                       value={formData.tone.serious}
                       onChange={(e) => updateFormField('tone.serious', parseInt(e.target.value))}
-                      className="w-full h-2 bg-gray-300 appearance-none slider"
+                      className="w-full h-2 bg-gray-300 appearance-none slider cursor-pointer"
                     />
                     <div 
                       className="absolute top-0 h-2 bg-black pointer-events-none"
@@ -271,7 +271,7 @@ const FormModal: React.FC = () => {
                       <h4 className="text-xl font-bold">INTENSITY</h4>
                       <div className="flex justify-between text-sm text-gray-600 mt-2">
                         <span>GENTLE</span>
-                        <span>INTIMIDATING</span>
+                        <span>- INTIMIDATING</span>
                       </div>
                     </div>
                     <div className="bg-black text-white px-4 py-2 font-bold">
@@ -285,7 +285,7 @@ const FormModal: React.FC = () => {
                       max="100"
                       value={formData.tone.aggressive}
                       onChange={(e) => updateFormField('tone.aggressive', parseInt(e.target.value))}
-                      className="w-full h-2 bg-gray-300 appearance-none slider"
+                      className="w-full h-2 bg-gray-300 appearance-none slider cursor-pointer"
                     />
                     <div 
                       className="absolute top-0 h-2 bg-black pointer-events-none"
@@ -305,7 +305,7 @@ const FormModal: React.FC = () => {
                       <h4 className="text-xl font-bold">CONSCIENCE</h4>
                       <div className="flex justify-between text-sm text-gray-600 mt-2">
                         <span>FACTUAL</span>
-                        <span>SOUL-CRUSHING</span>
+                        <span>- SOUL-CRUSHING</span>
                       </div>
                     </div>
                     <div className="bg-black text-white px-4 py-2 font-bold">
@@ -319,7 +319,7 @@ const FormModal: React.FC = () => {
                       max="100"
                       value={formData.tone.guilt}
                       onChange={(e) => updateFormField('tone.guilt', parseInt(e.target.value))}
-                      className="w-full h-2 bg-gray-300 appearance-none slider"
+                      className="w-full h-2 bg-gray-300 appearance-none slider cursor-pointer"
                     />
                     <div 
                       className="absolute top-0 h-2 bg-black pointer-events-none"
