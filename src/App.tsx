@@ -1,35 +1,38 @@
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import CustomCursor from './components/CustomCursor';
 import Header from './components/Header';
-import HeroSection from './components/HeroSection';
-import ProblemSection from './components/ProblemSection';
-import HowItWorksSection from './components/HowItWorksSection';
-import VoicesSection from './components/VoicesSection';
-import ExamplesSection from './components/ExamplesSection';
-import GlobalReachSection from './components/GlobalReachSection';
-import CTASection from './components/CTASection';
-import Footer from './components/Footer';
+import LandingPage from './pages/LandingPage';
+import Dashboard from './pages/Dashboard';
+import DebtLedger from './pages/DebtLedger';
+import ActivityFeed from './pages/ActivityFeed';
+import TicketGenerator from './pages/TicketGenerator';
+import DebtWall from './pages/DebtWall';
+import MemoryVault from './pages/MemoryVault';
+import Leaderboard from './pages/Leaderboard';
 import FormModal from './components/FormModal';
 import { FormProvider } from './context/FormContext';
 
 function App() {
   return (
     <FormProvider>
-      <div className="min-h-screen bg-black text-white overflow-x-hidden">
-        <CustomCursor />
-        <Header />
-        <main>
-          <HeroSection />
-          <ProblemSection />
-          <HowItWorksSection />
-          <VoicesSection />
-          <ExamplesSection />
-          <GlobalReachSection />
-          <CTASection />
-        </main>
-        <Footer />
-        <FormModal />
-      </div>
+      <Router>
+        <div className="min-h-screen bg-black text-white">
+          <CustomCursor />
+          <Header />
+          <Routes>
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/ledger" element={<DebtLedger />} />
+            <Route path="/activity" element={<ActivityFeed />} />
+            <Route path="/tickets" element={<TicketGenerator />} />
+            <Route path="/wall" element={<DebtWall />} />
+            <Route path="/vault" element={<MemoryVault />} />
+            <Route path="/leaderboard" element={<Leaderboard />} />
+          </Routes>
+          <FormModal />
+        </div>
+      </Router>
     </FormProvider>
   );
 }

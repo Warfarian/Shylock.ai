@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useForm } from '../context/FormContext';
-import { X, ArrowLeft, Phone } from 'lucide-react';
+import { X, ArrowLeft, Phone, AlertTriangle } from 'lucide-react';
 
 const FormModal: React.FC = () => {
   const { isFormOpen, setIsFormOpen, formData, updateFormField } = useForm();
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
     if (isFormOpen) {
@@ -17,12 +18,46 @@ const FormModal: React.FC = () => {
     };
   }, [isFormOpen]);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    // Here you would typically send the data to your backend
-    alert('Shylock has been summoned! You will receive a confirmation shortly.');
-    setIsFormOpen(false);
+    setIsSubmitting(true);
+
+    try {
+      // Map form data to the expected API structure
+      const apiData = {
+        collector_name: formData.collector_name,
+        friend_name: formData.friend_name,
+        phone_number: formData.phone_number,
+        amount: formData.amount,
+        reason: formData.reason,
+        time_since: formData.time_since,
+        tone: {
+          serious: formData.tone.serious,
+          aggressive: formData.tone.aggressive,
+          guilt: formData.tone.guilt
+        }
+      };
+
+      const response = await fetch('https://hook.eu2.make.com/6eyvi2c7dg84pvjxnmfk9xkb4khnbcq1', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(apiData)
+      });
+
+      if (response.ok) {
+        alert('Shylock has been summoned! Your theatrical intervention is being prepared...');
+        setIsFormOpen(false);
+      } else {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      alert('Failed to summon Shylock. Please try again or check your connection.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (!isFormOpen) return null;
@@ -56,6 +91,35 @@ const FormModal: React.FC = () => {
         
         {/* Content */}
         <div className="p-8">
+          {/* Twilio Disclaimer */}
+          <div className="bg-yellow-50 border-l-4 border-yellow-400 p-6 mb-8">
+            <div className="flex items-start">
+              <AlertTriangle className="text-yellow-400 mr-3 mt-1" size={20} />
+              <div>
+                <h3 className="text-lg font-bold text-yellow-800 mb-2">Demo Limitation Notice</h3>
+                <p className="text-yellow-700 leading-relaxed mb-4">
+                  <strong>Student Account Restriction:</strong> Due to Twilio's trial account restrictions, this demo currently works only with pre-verified phone numbers. As a student developer participating in the world's largest hackathon, I don't yet have access to the upgraded features needed to make real calls to unverified numbers.
+                </p>
+                
+                <p className="text-yellow-700 leading-relaxed mb-4">
+                  <strong>High Service Costs:</strong> Due to the high cost of voice, AI, and telephony services, this demo currently has limited call capacity. Each call uses advanced voice synthesis, language processing, and carrier-grade telephony — services powered by Retell AI and ElevenLabs — which cost real money per minute. As a student developer self-funding this project, I've capped the daily calls to stay within budget.
+                </p>
+                
+                <p className="text-yellow-700 leading-relaxed mb-4">
+                  You're welcome to try it out, but availability may reset every 24 hours. For the full experience, I recommend joining the waitlist or reaching out for early access once the app scales up.
+                </p>
+                
+                <p className="text-yellow-700 leading-relaxed">
+                  Additionally, bringing this experience to life relies on multiple paid services — including Retell AI for voice calling, ElevenLabs for custom voice synthesis, and Twilio for telephony infrastructure. Combined, these services can be prohibitively expensive, especially for an independent student builder like myself.
+                </p>
+                
+                <p className="text-yellow-600 text-sm mt-4 font-medium">
+                  Thanks for understanding — and testing the future of awkward debt recovery! Feel free to explore the interface and experience what could be Shylock.ai! Also vote for me!!
+                </p>
+              </div>
+            </div>
+          </div>
+
           <div className="text-center mb-12">
             <h2 className="text-5xl font-black mb-4">
               CONFIGURE
@@ -149,7 +213,7 @@ const FormModal: React.FC = () => {
               <textarea
                 value={formData.reason}
                 onChange={(e) => updateFormField('reason', e.target.value)}
-                placeholder="Paid for lunch at SS Hyderbadi Biryani"
+                placeholder="Paid for lunch at Fusili"
                 rows={4}
                 className="w-full p-4 border-2 border-gray-300 focus:border-black focus:outline-none text-lg resize-none"
                 required
@@ -173,7 +237,7 @@ const FormModal: React.FC = () => {
                       <h4 className="text-xl font-bold">GRAVITAS</h4>
                       <div className="flex justify-between text-sm text-gray-600 mt-2">
                         <span>CASUAL</span>
-                        <span>FUNERAL</span>
+                        <span>- FUNERAL</span>
                       </div>
                     </div>
                     <div className="bg-black text-white px-4 py-2 font-bold">
@@ -207,7 +271,7 @@ const FormModal: React.FC = () => {
                       <h4 className="text-xl font-bold">INTENSITY</h4>
                       <div className="flex justify-between text-sm text-gray-600 mt-2">
                         <span>GENTLE</span>
-                        <span>INTIMIDATING</span>
+                        <span>- INTIMIDATING</span>
                       </div>
                     </div>
                     <div className="bg-black text-white px-4 py-2 font-bold">
@@ -241,7 +305,7 @@ const FormModal: React.FC = () => {
                       <h4 className="text-xl font-bold">CONSCIENCE</h4>
                       <div className="flex justify-between text-sm text-gray-600 mt-2">
                         <span>FACTUAL</span>
-                        <span>SOUL-CRUSHING</span>
+                        <span>- SOUL-CRUSHING</span>
                       </div>
                     </div>
                     <div className="bg-black text-white px-4 py-2 font-bold">
@@ -274,10 +338,15 @@ const FormModal: React.FC = () => {
             <div className="pt-8">
               <button
                 type="submit"
-                className="w-full bg-black text-white py-6 text-xl font-bold tracking-wide hover:bg-gray-800 transition-colors flex items-center justify-center gap-3"
+                disabled={isSubmitting}
+                className={`w-full py-6 text-xl font-bold tracking-wide flex items-center justify-center gap-3 transition-colors ${
+                  isSubmitting 
+                    ? 'bg-gray-400 text-gray-600 cursor-not-allowed' 
+                    : 'bg-black text-white hover:bg-gray-800'
+                }`}
               >
                 <Phone size={24} />
-                SUMMON SHYLOCK
+                {isSubmitting ? 'SUMMONING SHYLOCK...' : 'SUMMON SHYLOCK'}
               </button>
             </div>
           </form>
