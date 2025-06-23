@@ -8,7 +8,7 @@
 
 Experience Shylock.ai in action: **[https://shylock-ai.netlify.app/](https://shylock-ai.netlify.app/)**
 
-[Video demo](https://youtu.be/kzU0UILaRXs?si=MTdSfkhhFw5vl0zs)
+[Video demo](https://youtu.be/_5vE7qe1S9M)
 
 ## What is Shylock.ai?
 
